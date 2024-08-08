@@ -9,7 +9,7 @@ int main()
 		p[i] = i;
 	}
 	int l = 0, r = 18, m = 9, k;
-	printf("ÇëÊäÈëÏëÒªÕÒµÄÊı×Ö:");
+	printf("è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„æ•°å­—:");
 	scanf("%d", &k);
 	while (l <= r)
 	{
@@ -26,11 +26,11 @@ int main()
 		}
 		else
 		{
-			printf("get it!");
+			printf("æ‰¾åˆ°å•¦!");
 			break;
 		}
 	}
 	if (l > r)
-		printf("pity!");
+		printf("æ²¡æ‰¾åˆ°!");
 	return  0;
 }

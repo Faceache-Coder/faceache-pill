@@ -49,7 +49,7 @@ void putbomb(char arr[ROW][COL], int row, int col)//放置"炸弹"
 			int y = rand() % col;
 			if (arr[x][y] == ' ')
 			{
-				arr[x][y] = '#';
+				arr[x][y] = '@';
 				break;
 			}
 		}
@@ -64,25 +64,17 @@ void putnumber(char arr[ROW][COL], int row, int col)
 	{
 		for(j=0;j<col;j++)
 		{
-			if (arr[i][j] != '#')//判断一个空周围"炸弹"的数量
+			if (arr[i][j] != '@')//判断一个空周围"炸弹"的数量
 			{
 				int n = 0;
-				if (arr[i - 1][j - 1] == '#')
-					n++;
-				if (arr[i - 1][j] == '#')
-					n++;
-				if (arr[i - 1][j + 1] == '#')
-					n++;
-				if (arr[i][j - 1] == '#')
-					n++;
-				if (arr[i][j + 1] == '#')
-					n++;
-				if (arr[i+1][j - 1] == '#')
-					n++;
-				if (arr[i + 1][j] == '#')
-					n++;
-				if (arr[i + 1][j + 1] == '#')
-					n++;
+				if (i > 0 && j > 0 && arr[i - 1][j - 1] == '@') n++;
+				if (i > 0 && arr[i - 1][j] == '@') n++;
+				if (i > 0 && j < COL - 1 && arr[i - 1][j + 1] == '@') n++;
+				if (j > 0 && arr[i][j - 1] == '@') n++;
+				if (j < COL - 1 && arr[i][j + 1] == '@') n++;
+				if (i < ROW - 1 && j > 0 && arr[i + 1][j - 1] == '@') n++;
+				if (i < ROW - 1 && arr[i + 1][j] == '@') n++;
+				if (i < ROW - 1 && j < COL - 1 && arr[i + 1][j + 1] == '@') n++;
 				char num = '0' + n;//将int形式的n转化成char形式,和arr数组对应以打印该数字的字符
 				arr[i][j] =num;
 		}
@@ -118,16 +110,12 @@ int isbomb(char board[ROW][COL], int row, int col)
 	{
 		for (j = 0; j < col; j++) 
 		{
-			if (board[i][j] == "#")
+			if (board[i][j] == '@')
 			{
 				return 1;
 				break;
 			}
-			else
-			{
-				return 0;
-			}
 		}
 	}
-
+	return 0;
 }

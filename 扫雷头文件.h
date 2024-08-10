@@ -1,9 +1,9 @@
 #pragma once
 
 #define _CRT_SECURE_NO_WARNINGS
-#define ROW 10
-#define COL 10
-#define bomb 10
+#define ROW 6
+#define COL 6
+#define bomb 6
 
 #include <stdio.h>
 #include <stdlib.h>;

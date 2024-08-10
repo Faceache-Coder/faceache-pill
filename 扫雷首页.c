@@ -15,14 +15,14 @@ void game()
 	initboard(board, ROW, COL);
 	putbomb(arr, ROW, COL);
 	putnumber(arr, ROW, COL);
-	displayboard(board, ROW, COL);
+	displayboard(board,ROW, COL);
 	while (1) 
 	{
 		player(board,arr,ROW,COL);
 		i++;
 		if (isbomb(board, ROW, COL))
 		{
-			printf("啊偶,你被炸死了~~~\n");
+			printf("啊偶,踩到地雷了~~~\n");
 			break;
 		}
 		if (i == ROW * COL - bomb)
